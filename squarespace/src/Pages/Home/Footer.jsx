@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Routes() {
+function Footer() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Routes() {
   )
 }
 
-export default Routes
+export default Footer

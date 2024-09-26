@@ -1,11 +1,14 @@
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import PageRouter from './Route/PageRouter';
 
 function App() {
   return (
     <div >
-     <h1 className="text-green-600">
-      Hello world!
-    </h1>
+    <Router>
+    <Routes>
+        <Route path='/*' element = {<PageRouter/>} />
+      </Routes>
+    </Router>
     </div>
   );
 }
