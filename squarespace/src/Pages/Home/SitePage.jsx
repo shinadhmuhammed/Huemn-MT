@@ -1,5 +1,5 @@
 import React from 'react'
-import Site from '../../Components/Home/Site'
+import Site from '../../Components/Site/Site'
 
 function SitePage() {
   return (
