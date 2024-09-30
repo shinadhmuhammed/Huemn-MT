@@ -13,7 +13,7 @@ const workFlowSlice = createSlice({
         },
         clearCurrentPage:(state,action)=>{
             state.currentPage = []
-        },
+        },  
         setCurrentPageIndex:(state,action)=>{
             state.currentPageIndex = action.payload
         },

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import image1 from '../.././../Images/sofaimage.jpeg';
+import image1 from '../../../Images/sofaimage.jpeg';
 
 const Intro = () => {
-  const title = useSelector((state) => state.site.title);
+  const title = useSelector((state) => state.site.title); 
+  const { headingFont } = useSelector((state) => state.web.fonts); 
 
   return (
-    <div className="bg-gray-100 h-64 transition duration-500 ease-in-out hover:border-4 hover:border-blue-500">  {/* Added hover border */}
-      {/* Header */}
+    <div className="bg-gray-100 h-64 transition duration-500 ease-in-out hover:border-4 hover:border-blue-500">
+    
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <h1 className="text-xl font-semibold text-gray-700">{title}</h1>
@@ -20,21 +21,22 @@ const Intro = () => {
         </div>
       </header>
 
-      {/* Main content */}
-      <main className="relative h-64 transition duration-500 ease-in-out">  
-        {/* Background image */}
+     
+      <main className="relative h-64 transition duration-500 ease-in-out">
+       
         <div className="absolute inset-0 h-full w-full">
           <img
-            className="w-full h-full object-cover transition duration-500 ease-in-out opacity-100 hover:opacity-0" 
+            className="w-full h-full object-cover transition duration-500 ease-in-out opacity-100 hover:opacity-0"
             src={image1}
             alt="Background"
           />
           <div className="absolute inset-0 bg-gray-500 mix-blend-multiply" aria-hidden="true" />
         </div>
 
-        {/* Content overlay */}
+        
         <div className="relative max-w-7xl mx-auto h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="font-bold tracking-tight text-white text-center sm:text-2xl lg:text-3xl transition duration-500 ease-in-out">
+       
+          <h1 className={`font-bold tracking-tight text-white text-center sm:text-2xl lg:text-3xl transition duration-500 ease-in-out ${headingFont}`}>
             Introduce Your Brand
           </h1>
         </div>

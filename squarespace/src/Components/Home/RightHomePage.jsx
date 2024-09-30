@@ -11,7 +11,7 @@ const RightHomePage = () => {
   };
 
   return (
-    <div className="w-3/5 p-12 mt-16 ml-24">
+    <div className="p-12 mt-16 ml-24">
       <div className="max-w-md">
         <h1 className="text-3xl font-bold mb-8">Build Your Homepage</h1>
         <p className="text-sm text-gray-500 mb-4">
