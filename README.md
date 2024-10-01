@@ -39,3 +39,16 @@ To get a local copy up and running, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/shinadhmuhammed/Huemn-MT.git
+2. Navigate to the project directory:
+   ```bash
+   cd Huemn-MT
+3.Install the required dependencies:
+``bash
+   npm install
+4. Start the development server:
+```bash
+   npm start
+
+
+
+
