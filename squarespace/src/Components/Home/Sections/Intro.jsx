@@ -1,5 +1,4 @@
-
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import image1 from '../../../Images/sofaimage.jpeg';
 import IntroHeader from './IntroHeader';
@@ -13,15 +12,12 @@ const Intro = () => {
   const introTitle = useSelector((state) => state.web.sections.intro.name);
 
   const [editMode, setEditMode] = useState(false);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
-  const [size, setSize] = useState({ width: 300, height: 50 });
-  const elementRef = useRef(null);
 
   const handleTitleChange = (e) => {
     dispatch(updateIntroTitle(e.target.value));
   };
 
-  const handleEditClick = () => setEditMode(!editMode);
+  
 
   return (
     <div className="bg-gray-100 h-64 transition duration-500 ease-in-out hover:border-4 hover:border-blue-500">
@@ -38,15 +34,10 @@ const Intro = () => {
         </div>
 
         <IntroBody
-          elementRef={elementRef}
-          position={position}
-          setPosition={setPosition}
-          size={size}
-          setSize={setSize}
-          introTitle={introTitle}
-          handleTitleChange={handleTitleChange}
           editMode={editMode}
           setEditMode={setEditMode}
+          introTitle={introTitle}
+          handleTitleChange={handleTitleChange}
           headingFont={headingFont}
         />
       </main>

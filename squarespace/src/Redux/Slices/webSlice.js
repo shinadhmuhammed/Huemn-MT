@@ -5,8 +5,6 @@ const initialState = {
     intro: { 
       show: true, 
       name: 'Intro Section',
-      position: { top: 0, left: 0 },
-      size: { width: 300, height: 50 }
     },
     product: { show: true, name: 'Product section' },
     about: { show: true, name: 'About section' },
@@ -49,23 +47,9 @@ const webSlice = createSlice({
         state.sections.intro.name = newTitle;
       }
     },
-
-    updateIntroPosition: (state, action) => {
-      const { top, left } = action.payload;
-      if (state.sections.intro) {
-        state.sections.intro.position = { top, left };
-      }
-    },
-
-    updateIntroSize: (state, action) => {
-      const { width, height } = action.payload;
-      if (state.sections.intro) {
-        state.sections.intro.size = { width, height };
-      }
-    }
   },
 });
 
-export const { setSections, toggleSection, setBackgroundColor, setFonts, updateIntroTitle,updateIntroPosition,updateIntroSize } = webSlice.actions;
+export const { setSections, toggleSection, setBackgroundColor, setFonts, updateIntroTitle } = webSlice.actions;
 
 export default webSlice.reducer;
