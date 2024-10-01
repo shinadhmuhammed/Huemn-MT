@@ -4,7 +4,6 @@ import image2 from '../.././../Images/image2.jpeg';
 import image3 from '../.././../Images/image3.jpeg';
 import image4 from '../.././../Images/image4.jpeg';
 
-
 const products = [
   { id: 1, name: 'Product Name', price: '$25', image: image2 },
   { id: 2, name: 'Product Name', price: '$55', image: image3 },
@@ -12,7 +11,7 @@ const products = [
 ];
 
 const Product = () => {
-  const { headingFont, bodyFont } = useSelector((state) => state.web.fonts);
+  const { headingFont } = useSelector((state) => state.web.fonts);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -26,13 +25,14 @@ const Product = () => {
             key={product.id} 
             className="flex flex-col items-center p-4 border-2 border-transparent hover:border-blue-500 transition duration-300 ease-in-out"
           >
-
             <div className="w-full aspect-square rounded-full overflow-hidden mb-4">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+              <img 
+                src={product.image} 
+                alt={product.name} 
+                className="w-full h-full object-cover"
+              />
             </div>
-
-
-            <h3 className={`text-lg font-semibold ${bodyFont}`}>{product.name}</h3>
+            <h3 className={`text-lg font-semibold ${headingFont}`}>{product.name}</h3>
             <p className="text-gray-600">{product.price}</p>
           </div>
         ))}
@@ -46,7 +46,13 @@ const Product = () => {
 
       <div className="flex justify-end mt-4">
         <button className="flex items-center text-sm text-gray-600 hover:text-gray-800">
-          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg 
+            className="w-4 h-4 mr-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
           CHANGE LAYOUT

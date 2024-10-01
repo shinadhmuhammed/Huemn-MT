@@ -1,17 +1,24 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Intro from "./Sections/Intro";
 import Product from "./Sections/Product";
+import About from "./Sections/About";
+import Footer from "./Sections/Footer";
+import { setSectionSelected } from "../../Redux/Slices/workflowSlice";
 
 const LeftHomePage = ({ sections }) => {
   const backgroundColor = useSelector((state) => state.web.backgroundColor);
+  const dispatch = useDispatch();
 
   const isAnySectionVisible = Object.values(sections).some(
     (section) => section.show
   );
+  useEffect(() => {
+    dispatch(setSectionSelected(isAnySectionVisible));
+  }, [sections, dispatch, isAnySectionVisible]);
 
   return (
-    <div className="w-3/4 p-12 flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
       {!isAnySectionVisible && (
         <>
           <h1 className="text-3xl font-bold mb-4">
@@ -29,17 +36,19 @@ const LeftHomePage = ({ sections }) => {
         style={{ backgroundColor }}
       >
         {sections.intro && sections.intro.show && <Intro />}
-
         {sections.product && sections.product.show && (
           <div className="mt-4 p-4 border border-gray-300 rounded">
             <Product />
           </div>
         )}
-
         {sections.about && sections.about.show && (
           <div className="mt-4 p-4 border border-gray-300 rounded">
-            <h2 className="font-bold">{sections.about.name}</h2>
-            <p>This is the content of the About section!</p>
+            <About />
+          </div>
+        )}
+        {sections.footer && sections.footer.show && (
+          <div className="mt-4 p-4 border border-gray-300 rounded">
+            <Footer />
           </div>
         )}
       </div>
