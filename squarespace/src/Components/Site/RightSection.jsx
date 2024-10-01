@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setTitle, setFontStyle } from "../../Redux/Slices/siteSlice";
+import { setTitle, setFontStyle } from "../../Redux/Slices/SiteSlice";
 
 const RightSection = () => {
   const dispatch = useDispatch();
