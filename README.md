@@ -43,11 +43,12 @@ To get a local copy up and running, follow these steps:
    ```bash
    cd Huemn-MT
 3.Install the required dependencies:
-``bash
+```bash
    npm install
 4. Start the development server:
 ```bash
    npm start
+
 
 
 
