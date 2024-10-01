@@ -42,12 +42,22 @@ To get a local copy up and running, follow these steps:
 2. Navigate to the project directory:
    ```bash
    cd Huemn-MT
-3.Install the required dependencies:
-```bash
+3. Install the required dependencies:
+   ```bash
    npm install
 4. Start the development server:
-```bash
+   ```bash
    npm start
+5. Open your browser and navigate to http://localhost:3000 to see your application in action.
+6. To create a production build, run:
+```bash
+npm run build
+
+   
+   
+
+
+
 
 
 
