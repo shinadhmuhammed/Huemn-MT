@@ -6,13 +6,14 @@ import About from "./Sections/About";
 import Footer from "./Sections/Footer";
 import { setSectionSelected } from "../../Redux/Slices/workflowSlice";
 
-const LeftHomePage = ({ sections }) => {
+const LeftHomePage = ({ sections, editSection, introRef }) => {
   const backgroundColor = useSelector((state) => state.web.backgroundColor);
   const dispatch = useDispatch();
 
   const isAnySectionVisible = Object.values(sections).some(
     (section) => section.show
   );
+  
   useEffect(() => {
     dispatch(setSectionSelected(isAnySectionVisible));
   }, [sections, dispatch, isAnySectionVisible]);
@@ -35,7 +36,11 @@ const LeftHomePage = ({ sections }) => {
         className="overflow-y-auto h-[400px] w-full p-4"
         style={{ backgroundColor }}
       >
-        {sections.intro && sections.intro.show && <Intro />}
+        {sections.intro && sections.intro.show && (
+          <div ref={introRef}> 
+            <Intro editMode={editSection === "intro"} /> 
+          </div>
+        )}
         {sections.product && sections.product.show && (
           <div className="mt-4 p-4 border border-gray-300 rounded">
             <Product />
