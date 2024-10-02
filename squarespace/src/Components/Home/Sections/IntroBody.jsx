@@ -1,4 +1,5 @@
 import React from 'react';
+import Draggable from 'react-draggable';
 
 const IntroBody = ({
   introTitle,
@@ -6,31 +7,38 @@ const IntroBody = ({
   editMode,
   setEditMode,
   headingFont,
+  introPosition,
+  onPositionChange 
 }) => {
   return (
-    <div className="relative max-w-7xl mx-auto h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+    <div className="absolute inset-0 flex items-center justify-center">
+      <Draggable
+        position={introPosition} 
+        onDrag={(e, data) => {
+          if (onPositionChange) {
+            onPositionChange({ x: data.x, y: data.y }); 
+          }
         }}
+        bounds="parent"
+        disabled={editMode}
       >
-        {editMode ? (
-          <input
-            type="text"
-            value={introTitle}
-            onChange={handleTitleChange}
-            className={`font-bold tracking-tight text-black text-center sm:text-2xl lg:text-3xl transition duration-500 ease-in-out ${headingFont} p-2 border rounded-md`}
-          />
-        ) : (
-          <h1
-            className={`font-bold tracking-tight text-white text-center justify-center sm:text-2xl lg:text-3xl transition duration-500 ease-in-out ${headingFont} flex items-center justify-center`}
-          >
-            {introTitle}
-          </h1>
-        )}
-      </div>
+        <div className="cursor-move">
+          {editMode ? (
+            <input
+              type="text"
+              value={introTitle}
+              onChange={handleTitleChange}
+              className={`font-bold tracking-tight text-white text-center sm:text-2xl lg:text-3xl transition duration-500 ease-in-out ${headingFont} p-2 border border-white rounded-md bg-transparent`}
+            />
+          ) : (
+            <h1
+              className={`font-bold tracking-tight text-white text-center sm:text-2xl lg:text-3xl transition duration-500 ease-in-out ${headingFont} text-shadow-lg`}
+            >
+              {introTitle}
+            </h1>
+          )}
+        </div>
+      </Draggable>
 
       <div className="absolute top-4 right-4">
         <button
