@@ -1,10 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Draggable from "react-draggable";
 import image2 from "../../../Images/image2.jpeg";
 import image3 from "../../../Images/image3.jpeg";
 import image4 from "../../../Images/image4.jpeg";
-import { updateProductPosition } from "../../../Redux/Slices/webSlice";
+// import { updateProductPosition } from "../../../Redux/Slices/webSlice";
 
 const initialProducts = [
   { id: "1", name: "Product Name", price: "$25", image: image2 },
@@ -13,23 +13,19 @@ const initialProducts = [
 ];
 
 const Product = () => {
-  const dispatch = useDispatch();
+
   const products = initialProducts;
   const { headingFont } = useSelector((state) => state.web.fonts);
   const productPosition = useSelector(
     (state) => state.web.sections.product.position
   );
 
-  const handlePositionChange = (position) => {
-    dispatch(updateProductPosition({ position }));
-  };
+ 
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 relative">
-      <Draggable
-        position={productPosition}
-        onStop={(e, data) => handlePositionChange({ x: data.x, y: data.y })}
-      >
+      <Draggable>
+      
         <div>
           <h2
             className={`text-3xl font-bold text-center mb-8 ${headingFont} cursor-move`}
